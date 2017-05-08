@@ -13,6 +13,7 @@ namespace EFSamurai.Domain
         public int Strength { get; set; }
         public int Agility { get; set; }
         public Haircut Haircut { get; set; }
+        public SecretIdentity Alias { get; set; }
         public virtual ICollection<Quote> Quotes { get; set; }
     }
 

@@ -9,9 +9,10 @@ using EFSamurai.Domain;
 namespace EFSamuari.Data.Migrations
 {
     [DbContext(typeof(SamuraiContext))]
-    partial class SamuraiContextModelSnapshot : ModelSnapshot
+    [Migration("20170508112418_MySeventhMigration")]
+    partial class MySeventhMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -44,6 +45,8 @@ namespace EFSamuari.Data.Migrations
 
                     b.Property<int>("Agility");
 
+                    b.Property<int?>("AliasId");
+
                     b.Property<int>("Haircut");
 
                     b.Property<string>("Name")
@@ -52,6 +55,8 @@ namespace EFSamuari.Data.Migrations
                     b.Property<int>("Strength");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AliasId");
 
                     b.ToTable("Samurais");
                 });
@@ -63,12 +68,7 @@ namespace EFSamuari.Data.Migrations
 
                     b.Property<string>("RealName");
 
-                    b.Property<int>("SamuraiId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("SamuraiId")
-                        .IsUnique();
 
                     b.ToTable("SecretIdentity");
                 });
@@ -81,12 +81,11 @@ namespace EFSamuari.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("EFSamurai.Domain.SecretIdentity", b =>
+            modelBuilder.Entity("EFSamurai.Domain.Samurai", b =>
                 {
-                    b.HasOne("EFSamurai.Domain.Samurai", "Samurai")
-                        .WithOne("Alias")
-                        .HasForeignKey("EFSamurai.Domain.SecretIdentity", "SamuraiId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.HasOne("EFSamurai.Domain.SecretIdentity", "Alias")
+                        .WithMany()
+                        .HasForeignKey("AliasId");
                 });
         }
     }
