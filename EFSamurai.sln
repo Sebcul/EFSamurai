@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFSamurai.Domain", "EFSamurai.Domain\EFSamurai.Domain.csproj", "{DF189488-C531-4231-B6F2-F64DE5389A80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFSamuari.Data", "EFSamuari.Data\EFSamuari.Data.csproj", "{89706D13-1734-4507-8E6B-DDA9D4D575FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF189488-C531-4231-B6F2-F64DE5389A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF189488-C531-4231-B6F2-F64DE5389A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF189488-C531-4231-B6F2-F64DE5389A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF189488-C531-4231-B6F2-F64DE5389A80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89706D13-1734-4507-8E6B-DDA9D4D575FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89706D13-1734-4507-8E6B-DDA9D4D575FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89706D13-1734-4507-8E6B-DDA9D4D575FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89706D13-1734-4507-8E6B-DDA9D4D575FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
