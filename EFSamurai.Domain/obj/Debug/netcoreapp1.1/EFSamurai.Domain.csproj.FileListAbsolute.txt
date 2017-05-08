@@ -5,3 +5,10 @@ C:\Users\cullb\OneDrive\ITHS\Utveckling av webbapplikationer\EF\Övning1\EFSamur
 C:\Users\cullb\OneDrive\ITHS\Utveckling av webbapplikationer\EF\Övning1\EFSamurai\EFSamurai.Domain\bin\Debug\netcoreapp1.1\EFSamurai.Domain.pdb
 C:\Users\cullb\OneDrive\ITHS\Utveckling av webbapplikationer\EF\Övning1\EFSamurai\EFSamurai.Domain\obj\Debug\netcoreapp1.1\EFSamurai.Domain.dll
 C:\Users\cullb\OneDrive\ITHS\Utveckling av webbapplikationer\EF\Övning1\EFSamurai\EFSamurai.Domain\obj\Debug\netcoreapp1.1\EFSamurai.Domain.pdb
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.Domain\bin\Debug\netcoreapp1.1\EFSamurai.Domain.deps.json
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.Domain\bin\Debug\netcoreapp1.1\EFSamurai.Domain.dll
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.Domain\bin\Debug\netcoreapp1.1\EFSamurai.Domain.pdb
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.Domain\obj\Debug\netcoreapp1.1\EFSamurai.Domain.csprojResolveAssemblyReference.cache
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.Domain\obj\Debug\netcoreapp1.1\EFSamurai.Domain.AssemblyInfo.cs
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.Domain\obj\Debug\netcoreapp1.1\EFSamurai.Domain.dll
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.Domain\obj\Debug\netcoreapp1.1\EFSamurai.Domain.pdb

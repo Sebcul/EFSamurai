@@ -8,9 +8,10 @@ using EFSamuari.Data;
 namespace EFSamuari.Data.Migrations
 {
     [DbContext(typeof(SamuraiContext))]
-    partial class SamuraiContextModelSnapshot : ModelSnapshot
+    [Migration("20170508081123_MySecondMigration")]
+    partial class MySecondMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -21,11 +22,7 @@ namespace EFSamuari.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Agility");
-
                     b.Property<string>("Name");
-
-                    b.Property<int>("Strength");
 
                     b.HasKey("Id");
 
