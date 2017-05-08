@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using EFSamuari.Data;
-using EFSamurai.Domain;
 
 namespace EFSamuari.Data.Migrations
 {
