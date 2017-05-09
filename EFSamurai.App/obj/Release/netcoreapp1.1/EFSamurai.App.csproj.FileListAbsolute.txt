@@ -1,0 +1,13 @@
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.App\bin\Release\netcoreapp1.1\EFSamurai.App.deps.json
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.App\bin\Release\netcoreapp1.1\EFSamurai.App.runtimeconfig.json
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.App\bin\Release\netcoreapp1.1\EFSamurai.App.runtimeconfig.dev.json
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.App\bin\Release\netcoreapp1.1\EFSamurai.App.dll
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.App\bin\Release\netcoreapp1.1\EFSamurai.App.pdb
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.App\bin\Release\netcoreapp1.1\EFSamuari.Data.dll
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.App\bin\Release\netcoreapp1.1\EFSamurai.Domain.dll
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.App\bin\Release\netcoreapp1.1\EFSamuari.Data.pdb
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.App\bin\Release\netcoreapp1.1\EFSamurai.Domain.pdb
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.App\obj\Release\netcoreapp1.1\EFSamurai.App.csprojResolveAssemblyReference.cache
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.App\obj\Release\netcoreapp1.1\EFSamurai.App.AssemblyInfo.cs
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.App\obj\Release\netcoreapp1.1\EFSamurai.App.dll
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.App\obj\Release\netcoreapp1.1\EFSamurai.App.pdb

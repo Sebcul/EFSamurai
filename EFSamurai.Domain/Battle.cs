@@ -9,6 +9,9 @@ namespace EFSamurai.Domain
     {
         public int Id { get; set; }
         public ICollection<SamuraiBattles> SamuraiBattles {get; set; }
+        public string Name { get; set; }
+        public DateTime Time { get; set; }
+        public bool IsBrutal { get; set; }
         public virtual BattleLog BattleLog { get; set; }
 
     }

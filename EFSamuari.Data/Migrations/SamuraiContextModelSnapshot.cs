@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using EFSamuari.Data;
 using EFSamurai.Domain;
-
 namespace EFSamuari.Data.Migrations
 {
     [DbContext(typeof(SamuraiContext))]
@@ -23,6 +22,12 @@ namespace EFSamuari.Data.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int?>("BattleLogId");
+
+                    b.Property<bool>("IsBrutal");
+
+                    b.Property<string>("Name");
+
+                    b.Property<DateTime>("Time");
 
                     b.HasKey("Id");
 

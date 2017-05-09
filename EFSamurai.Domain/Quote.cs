@@ -21,8 +21,8 @@ namespace EFSamurai.Domain
 
     public enum QuoteType
     {
-        Lame,
-        Cheesy,
-        Awesome
+        Lame = 0,
+        Cheesy = 1,
+        Awesome = 2
     }
 }

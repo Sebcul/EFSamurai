@@ -14,7 +14,7 @@ namespace EFSamurai.App
         static void Main(string[] args)
         {
             ClearDatabase();
-            AddOneSamurai("Prutt", 1, 2, "Prutt-san", Haircut.Western);
+            AddOneSamurai("Prutt", 1, 2, "Prutt-san", Haircut.Western, "Som man bäddar får man ligga", QuoteType.Cheesy);
             AddSomeBattles();
 
             AddOneSamuraiWithRelatedData();
@@ -26,10 +26,103 @@ namespace EFSamurai.App
             Console.WriteLine();
             Console.WriteLine("All samurais ordered by id descending");
             ListAllSamuraiNames_OrderByIdDescending();
+            Console.WriteLine();
+            Console.WriteLine("List all quotes of type 'Lame'");
+            ListAllQuotesOfType(QuoteType.Lame);
+            Console.WriteLine();
+            Console.WriteLine("List all quotes of type 'Cheesy'");
+            ListAllQuotesOfType(QuoteType.Cheesy);
+            Console.WriteLine();
+            Console.WriteLine("List all 'Cheesy' quotes with samurai");
+            ListAllQuotesOfType_WithSamurai(QuoteType.Cheesy);
+            Console.WriteLine();
+            Console.WriteLine("List all 'Lame' quotes with samurai");
+            ListAllQuotesOfType_WithSamurai(QuoteType.Lame);
+            Console.WriteLine();
+            Console.WriteLine("List all battles from 2012-03-03 to Today and is brutal");
+            ListAllBattles(Convert.ToDateTime("2012-03-03"), DateTime.Now, true);
+            Console.WriteLine();
+            Console.WriteLine("List all battles from 2012-03-03 to Today and is not brutal");
+            ListAllBattles(Convert.ToDateTime("2012-03-03"), DateTime.Now, false);
+            Console.WriteLine();
+            Console.WriteLine("List all battles from 2012-03-03 to Today");
+            ListAllBattles(Convert.ToDateTime("2012-03-03"), DateTime.Now.AddDays(2), null);
             //AddSomeSamurais();
 
             Console.WriteLine("\nDone!");
             Console.ReadLine();
+        }
+
+        private static void ListAllBattles(DateTime from, DateTime to, bool? isBrutal)
+        {
+            using (var context = new SamuraiContext())
+            {
+                var battles = context.Battles.Where(b => b.Time >= from && b.Time <= to);
+
+                if (isBrutal == true)
+                {
+                    battles = battles.Where(b => b.IsBrutal);
+                    foreach (var battle in battles)
+                    {
+                        Console.WriteLine($"'{battle.Name}' is a brutal battle within the period {from.ToString("20yy-MM-dd")} - {to.ToString("20yy-MM-dd")}.");
+                    }
+                }
+                else if (isBrutal == false)
+                {
+                    battles = battles.Where(b => !b.IsBrutal);
+                    foreach (var battle in battles)
+                    {
+                        Console.WriteLine($"'{battle.Name}' is not a brutal battle within the period {from.ToString("20yy-MM-dd")} - {to.ToString("20yy-MM-dd")}.");
+                    }
+                }
+                else
+                {
+                    foreach (var battle in battles)
+                    {
+                        Console.WriteLine($"'{battle.Name}' is a battle within the period {from.ToString("20yy-MM-dd")} - {to.ToString("20yy-MM-dd")}.");
+                    }
+                }
+
+            }
+        }
+
+        private static void ListAllQuotesOfType_WithSamurai(QuoteType quoteType)
+        {
+            List<Quote> quotes = null;
+            using (var context = new SamuraiContext())
+            {
+                quotes = context.Quotes.ToList();
+            }
+            using (var context = new SamuraiContext())
+            {
+
+                var samurais = context.Samurais;
+
+                foreach (var samurai in samurais)
+                {
+                    var samuraiQuotes = quotes;
+
+                    foreach (var quote in samuraiQuotes)
+                    {
+                        if (quote.Type == quoteType && samurai.Id == quote.SamuraiId)
+                        {
+                            Console.WriteLine($"'{quote.Text}' is a {quoteType} quote by {samurai.Name}.");
+                        }
+                    }
+                }
+            }
+        }
+
+        private static void ListAllQuotesOfType(QuoteType quoteType)
+        {
+            using (var context = new SamuraiContext())
+            {
+                var cheesyQuotes = context.Quotes.Where(x => x.Type == quoteType);
+                foreach (var quote in cheesyQuotes)
+                {
+                    Console.WriteLine(quote.Text);
+                }
+            }
         }
 
         private static void ListAllSamuraiNames_OrderByIdDescending()
@@ -95,7 +188,7 @@ namespace EFSamurai.App
             var battleEvent = new BattleEvent { Description = "Battle SamuraiRelatedData Event", EventSummary = "Everyone dies", Time = DateTime.UtcNow };
             var battleLog = new BattleLog { Name = "Battle SamuraiRelatedData log" };
             battleLog.Events.Add(battleEvent);
-            var battle = new Battle { BattleLog = battleLog };
+            var battle = new Battle { BattleLog = battleLog, Time = DateTime.Now.Subtract(new TimeSpan(10)), IsBrutal = true, Name = "Battle 1"};
             var samuraiBattleOne = new SamuraiBattles { Battle = battle, Samurai = samurai};
 
             using (var context = new SamuraiContext())
@@ -129,7 +222,7 @@ namespace EFSamurai.App
             var battleOneEvents = new BattleEvent {Description = "Battle One Event", EventSummary = "Everyone dies", Time = DateTime.UtcNow};
             var battleOneLog = new BattleLog { Name = "Battle one log"};
             battleOneLog.Events.Add(battleOneEvents);
-            var battleOne = new Battle { BattleLog = battleOneLog };
+            var battleOne = new Battle { BattleLog = battleOneLog, Time = DateTime.UtcNow.Subtract(new TimeSpan(20)), IsBrutal = false, Name = "Battle 2"};
             var samuraiOne = AddOneSamurai("Daniel", 1, 2, "Daniel-san", Haircut.Western);
             var samuraiBattleOne = new SamuraiBattles {Battle = battleOne, SamuraiId = samuraiOne.Id };
 
@@ -137,7 +230,7 @@ namespace EFSamurai.App
             var battleTwoEvents = new BattleEvent { Description = "Battle Two Event", EventSummary = "Noone dies", Time = DateTime.UtcNow.AddDays(2) };
             var battleTwoLog = new BattleLog { Name = "Battle two log" };
             battleOneLog.Events.Add(battleTwoEvents);
-            var battleTwo = new Battle { BattleLog = battleTwoLog };
+            var battleTwo = new Battle { BattleLog = battleTwoLog, Time = DateTime.UtcNow.AddDays(2), IsBrutal = true, Name = "Battle 3"};
             var samuraiTwo = AddOneSamurai("Sven", 1, 2, "Svenne-san", Haircut.Oicho);
             var samuraiBattleTwo = new SamuraiBattles { Battle = battleTwo, SamuraiId = samuraiTwo.Id };
             battlesToAdd.Add(battleOne);
@@ -217,6 +310,27 @@ namespace EFSamurai.App
             {
                 Name = name, Agility = agility, Strength = strength, Alias = secretIdentity, Haircut = haircut
             };
+            using (var context = new SamuraiContext())
+            {
+                context.Samurais.Add(samurai);
+                context.SaveChanges();
+            }
+            return samurai;
+        }
+
+        private static Samurai AddOneSamurai(string name, int agility, int strength, string alias, Haircut haircut, string quote, QuoteType quoteType)
+        {
+            var secretIdentity = new SecretIdentity { RealName = alias };
+
+            var samurai = new Samurai
+            {
+                Name = name,
+                Agility = agility,
+                Strength = strength,
+                Alias = secretIdentity,
+                Haircut = haircut
+            };
+            samurai.Quotes.Add(new Quote{ IsFunny = false, Text = quote, Type = quoteType});
             using (var context = new SamuraiContext())
             {
                 context.Samurais.Add(samurai);

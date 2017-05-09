@@ -1,0 +1,11 @@
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamuari.Data\bin\Release\netcoreapp1.1\EFSamuari.Data.deps.json
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamuari.Data\bin\Release\netcoreapp1.1\EFSamuari.Data.runtimeconfig.json
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamuari.Data\bin\Release\netcoreapp1.1\EFSamuari.Data.runtimeconfig.dev.json
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamuari.Data\bin\Release\netcoreapp1.1\EFSamuari.Data.dll
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamuari.Data\bin\Release\netcoreapp1.1\EFSamuari.Data.pdb
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamuari.Data\bin\Release\netcoreapp1.1\EFSamurai.Domain.dll
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamuari.Data\bin\Release\netcoreapp1.1\EFSamurai.Domain.pdb
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamuari.Data\obj\Release\netcoreapp1.1\EFSamuari.Data.csprojResolveAssemblyReference.cache
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamuari.Data\obj\Release\netcoreapp1.1\EFSamuari.Data.AssemblyInfo.cs
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamuari.Data\obj\Release\netcoreapp1.1\EFSamuari.Data.dll
+C:\Users\cullb\Source\Repos\EFSamurai\EFSamuari.Data\obj\Release\netcoreapp1.1\EFSamuari.Data.pdb
