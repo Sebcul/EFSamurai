@@ -9,9 +9,10 @@ using EFSamurai.Domain;
 namespace EFSamuari.Data.Migrations
 {
     [DbContext(typeof(SamuraiContext))]
-    partial class SamuraiContextModelSnapshot : ModelSnapshot
+    [Migration("20170508124754_MyTwelvethMigration")]
+    partial class MyTwelvethMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -22,11 +23,15 @@ namespace EFSamuari.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("BattleLogId");
+                    b.Property<int>("BattleLogId");
+
+                    b.Property<int?>("WinnerId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("BattleLogId");
+
+                    b.HasIndex("WinnerId");
 
                     b.ToTable("Battles");
                 });
@@ -80,7 +85,7 @@ namespace EFSamuari.Data.Migrations
 
                     b.HasIndex("SamuraiId");
 
-                    b.ToTable("Quotes");
+                    b.ToTable("Quote");
                 });
 
             modelBuilder.Entity("EFSamurai.Domain.Samurai", b =>
@@ -136,7 +141,12 @@ namespace EFSamuari.Data.Migrations
                 {
                     b.HasOne("EFSamurai.Domain.BattleLog", "BattleLog")
                         .WithMany()
-                        .HasForeignKey("BattleLogId");
+                        .HasForeignKey("BattleLogId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("EFSamurai.Domain.Samurai", "Winner")
+                        .WithMany()
+                        .HasForeignKey("WinnerId");
                 });
 
             modelBuilder.Entity("EFSamurai.Domain.BattleEvent", b =>

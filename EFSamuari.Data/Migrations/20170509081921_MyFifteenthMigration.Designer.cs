@@ -9,9 +9,10 @@ using EFSamurai.Domain;
 namespace EFSamuari.Data.Migrations
 {
     [DbContext(typeof(SamuraiContext))]
-    partial class SamuraiContextModelSnapshot : ModelSnapshot
+    [Migration("20170509081921_MyFifteenthMigration")]
+    partial class MyFifteenthMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -24,9 +25,13 @@ namespace EFSamuari.Data.Migrations
 
                     b.Property<int?>("BattleLogId");
 
+                    b.Property<int?>("WinnerId");
+
                     b.HasKey("Id");
 
                     b.HasIndex("BattleLogId");
+
+                    b.HasIndex("WinnerId");
 
                     b.ToTable("Battles");
                 });
@@ -137,6 +142,10 @@ namespace EFSamuari.Data.Migrations
                     b.HasOne("EFSamurai.Domain.BattleLog", "BattleLog")
                         .WithMany()
                         .HasForeignKey("BattleLogId");
+
+                    b.HasOne("EFSamurai.Domain.Samurai", "Winner")
+                        .WithMany()
+                        .HasForeignKey("WinnerId");
                 });
 
             modelBuilder.Entity("EFSamurai.Domain.BattleEvent", b =>

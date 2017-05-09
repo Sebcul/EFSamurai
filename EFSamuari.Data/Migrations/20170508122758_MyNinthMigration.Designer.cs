@@ -9,9 +9,10 @@ using EFSamurai.Domain;
 namespace EFSamuari.Data.Migrations
 {
     [DbContext(typeof(SamuraiContext))]
-    partial class SamuraiContextModelSnapshot : ModelSnapshot
+    [Migration("20170508122758_MyNinthMigration")]
+    partial class MyNinthMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -22,45 +23,13 @@ namespace EFSamuari.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("BattleLogId");
+                    b.Property<int?>("WinnerId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BattleLogId");
+                    b.HasIndex("WinnerId");
 
                     b.ToTable("Battles");
-                });
-
-            modelBuilder.Entity("EFSamurai.Domain.BattleEvent", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("BattleLogId");
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("EventSummary");
-
-                    b.Property<DateTime>("Time");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BattleLogId");
-
-                    b.ToTable("BattleEvent");
-                });
-
-            modelBuilder.Entity("EFSamurai.Domain.BattleLog", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("BattleLog");
                 });
 
             modelBuilder.Entity("EFSamurai.Domain.Quote", b =>
@@ -80,7 +49,7 @@ namespace EFSamuari.Data.Migrations
 
                     b.HasIndex("SamuraiId");
 
-                    b.ToTable("Quotes");
+                    b.ToTable("Quote");
                 });
 
             modelBuilder.Entity("EFSamurai.Domain.Samurai", b =>
@@ -134,16 +103,9 @@ namespace EFSamuari.Data.Migrations
 
             modelBuilder.Entity("EFSamurai.Domain.Battle", b =>
                 {
-                    b.HasOne("EFSamurai.Domain.BattleLog", "BattleLog")
+                    b.HasOne("EFSamurai.Domain.Samurai", "Winner")
                         .WithMany()
-                        .HasForeignKey("BattleLogId");
-                });
-
-            modelBuilder.Entity("EFSamurai.Domain.BattleEvent", b =>
-                {
-                    b.HasOne("EFSamurai.Domain.BattleLog")
-                        .WithMany("Events")
-                        .HasForeignKey("BattleLogId");
+                        .HasForeignKey("WinnerId");
                 });
 
             modelBuilder.Entity("EFSamurai.Domain.Quote", b =>

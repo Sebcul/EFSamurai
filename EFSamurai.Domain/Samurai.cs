@@ -7,6 +7,10 @@ namespace EFSamurai.Domain
 {
     public class Samurai
     {
+        public Samurai()
+        {
+            Quotes = new HashSet<Quote>();
+        }
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
@@ -15,6 +19,11 @@ namespace EFSamurai.Domain
         public Haircut Haircut { get; set; }
         public SecretIdentity Alias { get; set; }
         public virtual ICollection<Quote> Quotes { get; set; }
+
+        public override string ToString()
+        {
+            return $"Name: {Name}, Secret Identity: {Alias.RealName}, Strength: {Strength}, Agility: {Agility}, Haircut: {Haircut}";}
+        }
     }
 
     public enum Haircut
@@ -23,4 +32,3 @@ namespace EFSamurai.Domain
         Oicho,
         Western
     }
-}

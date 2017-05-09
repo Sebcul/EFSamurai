@@ -9,9 +9,10 @@ using EFSamurai.Domain;
 namespace EFSamuari.Data.Migrations
 {
     [DbContext(typeof(SamuraiContext))]
-    partial class SamuraiContextModelSnapshot : ModelSnapshot
+    [Migration("20170508124210_MyTenthMigration")]
+    partial class MyTenthMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")
@@ -22,11 +23,11 @@ namespace EFSamuari.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("BattleLogId");
+                    b.Property<int?>("WinnerId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BattleLogId");
+                    b.HasIndex("WinnerId");
 
                     b.ToTable("Battles");
                 });
@@ -56,9 +57,12 @@ namespace EFSamuari.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name");
+                    b.Property<int>("BattleId");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BattleId")
+                        .IsUnique();
 
                     b.ToTable("BattleLog");
                 });
@@ -80,7 +84,7 @@ namespace EFSamuari.Data.Migrations
 
                     b.HasIndex("SamuraiId");
 
-                    b.ToTable("Quotes");
+                    b.ToTable("Quote");
                 });
 
             modelBuilder.Entity("EFSamurai.Domain.Samurai", b =>
@@ -134,9 +138,9 @@ namespace EFSamuari.Data.Migrations
 
             modelBuilder.Entity("EFSamurai.Domain.Battle", b =>
                 {
-                    b.HasOne("EFSamurai.Domain.BattleLog", "BattleLog")
+                    b.HasOne("EFSamurai.Domain.Samurai", "Winner")
                         .WithMany()
-                        .HasForeignKey("BattleLogId");
+                        .HasForeignKey("WinnerId");
                 });
 
             modelBuilder.Entity("EFSamurai.Domain.BattleEvent", b =>
@@ -144,6 +148,14 @@ namespace EFSamuari.Data.Migrations
                     b.HasOne("EFSamurai.Domain.BattleLog")
                         .WithMany("Events")
                         .HasForeignKey("BattleLogId");
+                });
+
+            modelBuilder.Entity("EFSamurai.Domain.BattleLog", b =>
+                {
+                    b.HasOne("EFSamurai.Domain.Battle", "Battle")
+                        .WithOne("Log")
+                        .HasForeignKey("EFSamurai.Domain.BattleLog", "BattleId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("EFSamurai.Domain.Quote", b =>
