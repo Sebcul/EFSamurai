@@ -175,9 +175,6 @@ namespace EFSamurai.App
                 Console.Write("Enter secret identity: ");
                 input = Console.ReadLine();
                 samurai.Alias = new SecretIdentity { RealName = input};
-                //Console.Write("Enter haircut: ");
-                //input = Console.ReadLine();
-                //samurai.Haircut = ut;
                 samuraisToAdd.Add(samurai);
                 Console.Write("Add one more?(Y/N) ");
                 var consoleKey = Console.ReadKey();
