@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
 using EFSamuari.Data;
 using EFSamurai.Domain;
 using Microsoft.EntityFrameworkCore;
@@ -57,10 +55,32 @@ namespace EFSamurai.App
             Console.WriteLine();
             Console.WriteLine("List all battles with it's log book and events where IsBrutal = false");
             ListAllBattles_WithLog(DateTime.MinValue, DateTime.MaxValue, false);
+            Console.WriteLine();
+            //TODO: Koppla ihop samurais med respektive battles
+            Console.WriteLine("Get all samurais with the battles they are participating in");
+            var samuraisWithBattles = GetSamuraiInfo();
+
             //AddSomeSamurais();
 
             Console.WriteLine("\nDone!");
             Console.ReadLine();
+        }
+
+        private static List<SamuraiInfo> GetSamuraiInfo()
+        {
+            var samuraiInfoList = new List<SamuraiInfo>();
+            SamuraiInfo samuraiInfo = null;
+
+            using (var context = new SamuraiContext())
+            {
+                foreach (var samurai in context.Samurais)
+                {
+                    samuraiInfo.Name = samurai.Name;
+                    samuraiInfo.RealName = samurai.Alias.RealName;
+                    //TODO: Koppla ihop samurais med respektive battles
+                }
+                return samuraiInfoList;
+            }
         }
 
         private static void ListAllBattles_WithLog(DateTime from, DateTime to, bool isBrutal)
@@ -278,6 +298,14 @@ namespace EFSamurai.App
                 context.Database.ExecuteSqlCommand("DELETE FROM  [dbo].[Quotes]");
                 context.Database.ExecuteSqlCommand("DELETE FROM  [dbo].[SamuraiBattles]");
                 context.Database.ExecuteSqlCommand("DELETE FROM  [dbo].[SecretIdentity]");
+
+                context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('[dbo].[BattleEvent]', RESEED, 0)");
+                context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('[dbo].[Samurais]', RESEED, 0)");
+                context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('[dbo].[Battles]', RESEED, 0)");
+                context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('[dbo].[BattleLog]', RESEED, 0)");
+                context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('[dbo].[Quotes]', RESEED, 0)");
+                context.Database.ExecuteSqlCommand("DBCC CHECKIDENT('[dbo].[SecretIdentity]', RESEED, 0)");
+
                 context.SaveChanges();
             }
         }
