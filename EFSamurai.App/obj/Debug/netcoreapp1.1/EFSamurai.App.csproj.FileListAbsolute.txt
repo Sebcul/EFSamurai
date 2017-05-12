@@ -11,3 +11,16 @@ C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.App\obj\Debug\netcoreapp1.1\EFSa
 C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.App\obj\Debug\netcoreapp1.1\EFSamurai.App.AssemblyInfo.cs
 C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.App\obj\Debug\netcoreapp1.1\EFSamurai.App.dll
 C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.App\obj\Debug\netcoreapp1.1\EFSamurai.App.pdb
+D:\Github\EFSamurai\EFSamurai.App\bin\Debug\netcoreapp1.1\EFSamurai.App.deps.json
+D:\Github\EFSamurai\EFSamurai.App\bin\Debug\netcoreapp1.1\EFSamurai.App.runtimeconfig.json
+D:\Github\EFSamurai\EFSamurai.App\bin\Debug\netcoreapp1.1\EFSamurai.App.runtimeconfig.dev.json
+D:\Github\EFSamurai\EFSamurai.App\bin\Debug\netcoreapp1.1\EFSamurai.App.dll
+D:\Github\EFSamurai\EFSamurai.App\bin\Debug\netcoreapp1.1\EFSamurai.App.pdb
+D:\Github\EFSamurai\EFSamurai.App\bin\Debug\netcoreapp1.1\EFSamuari.Data.dll
+D:\Github\EFSamurai\EFSamurai.App\bin\Debug\netcoreapp1.1\EFSamurai.Domain.dll
+D:\Github\EFSamurai\EFSamurai.App\bin\Debug\netcoreapp1.1\EFSamuari.Data.pdb
+D:\Github\EFSamurai\EFSamurai.App\bin\Debug\netcoreapp1.1\EFSamurai.Domain.pdb
+D:\Github\EFSamurai\EFSamurai.App\obj\Debug\netcoreapp1.1\EFSamurai.App.csprojResolveAssemblyReference.cache
+D:\Github\EFSamurai\EFSamurai.App\obj\Debug\netcoreapp1.1\EFSamurai.App.AssemblyInfo.cs
+D:\Github\EFSamurai\EFSamurai.App\obj\Debug\netcoreapp1.1\EFSamurai.App.dll
+D:\Github\EFSamurai\EFSamurai.App\obj\Debug\netcoreapp1.1\EFSamurai.App.pdb

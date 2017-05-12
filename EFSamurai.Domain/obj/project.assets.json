@@ -8121,15 +8121,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cullb\\.nuget\\packages\\": {}
+    "C:\\Users\\Baste\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cullb\\Source\\Repos\\EFSamurai\\EFSamurai.Domain\\EFSamurai.Domain.csproj",
+      "projectUniqueName": "D:\\Github\\EFSamurai\\EFSamurai.Domain\\EFSamurai.Domain.csproj",
       "projectName": "EFSamurai.Domain",
-      "projectPath": "C:\\Users\\cullb\\Source\\Repos\\EFSamurai\\EFSamurai.Domain\\EFSamurai.Domain.csproj",
-      "outputPath": "C:\\Users\\cullb\\Source\\Repos\\EFSamurai\\EFSamurai.Domain\\obj\\",
+      "projectPath": "D:\\Github\\EFSamurai\\EFSamurai.Domain\\EFSamurai.Domain.csproj",
+      "outputPath": "D:\\Github\\EFSamurai\\EFSamurai.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"

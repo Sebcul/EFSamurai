@@ -8136,15 +8136,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\cullb\\.nuget\\packages\\": {}
+    "C:\\Users\\Baste\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cullb\\Source\\Repos\\EFSamurai\\EFSamuari.Data\\EFSamuari.Data.csproj",
+      "projectUniqueName": "D:\\Github\\EFSamurai\\EFSamuari.Data\\EFSamuari.Data.csproj",
       "projectName": "EFSamuari.Data",
-      "projectPath": "C:\\Users\\cullb\\Source\\Repos\\EFSamurai\\EFSamuari.Data\\EFSamuari.Data.csproj",
-      "outputPath": "C:\\Users\\cullb\\Source\\Repos\\EFSamurai\\EFSamuari.Data\\obj\\",
+      "projectPath": "D:\\Github\\EFSamurai\\EFSamuari.Data\\EFSamuari.Data.csproj",
+      "outputPath": "D:\\Github\\EFSamurai\\EFSamuari.Data\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
@@ -8152,8 +8152,8 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "C:\\Users\\cullb\\Source\\Repos\\EFSamurai\\EFSamurai.Domain\\EFSamurai.Domain.csproj": {
-              "projectPath": "C:\\Users\\cullb\\Source\\Repos\\EFSamurai\\EFSamurai.Domain\\EFSamurai.Domain.csproj"
+            "D:\\Github\\EFSamurai\\EFSamurai.Domain\\EFSamurai.Domain.csproj": {
+              "projectPath": "D:\\Github\\EFSamurai\\EFSamurai.Domain\\EFSamurai.Domain.csproj"
             }
           }
         }

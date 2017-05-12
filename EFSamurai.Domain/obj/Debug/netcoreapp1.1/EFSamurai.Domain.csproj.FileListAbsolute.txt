@@ -12,3 +12,10 @@ C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.Domain\obj\Debug\netcoreapp1.1\E
 C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.Domain\obj\Debug\netcoreapp1.1\EFSamurai.Domain.AssemblyInfo.cs
 C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.Domain\obj\Debug\netcoreapp1.1\EFSamurai.Domain.dll
 C:\Users\cullb\Source\Repos\EFSamurai\EFSamurai.Domain\obj\Debug\netcoreapp1.1\EFSamurai.Domain.pdb
+D:\Github\EFSamurai\EFSamurai.Domain\bin\Debug\netcoreapp1.1\EFSamurai.Domain.deps.json
+D:\Github\EFSamurai\EFSamurai.Domain\bin\Debug\netcoreapp1.1\EFSamurai.Domain.dll
+D:\Github\EFSamurai\EFSamurai.Domain\bin\Debug\netcoreapp1.1\EFSamurai.Domain.pdb
+D:\Github\EFSamurai\EFSamurai.Domain\obj\Debug\netcoreapp1.1\EFSamurai.Domain.csprojResolveAssemblyReference.cache
+D:\Github\EFSamurai\EFSamurai.Domain\obj\Debug\netcoreapp1.1\EFSamurai.Domain.AssemblyInfo.cs
+D:\Github\EFSamurai\EFSamurai.Domain\obj\Debug\netcoreapp1.1\EFSamurai.Domain.dll
+D:\Github\EFSamurai\EFSamurai.Domain\obj\Debug\netcoreapp1.1\EFSamurai.Domain.pdb

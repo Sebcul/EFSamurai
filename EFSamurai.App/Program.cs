@@ -69,14 +69,38 @@ namespace EFSamurai.App
         private static List<SamuraiInfo> GetSamuraiInfo()
         {
             var samuraiInfoList = new List<SamuraiInfo>();
-            SamuraiInfo samuraiInfo = null;
+            SamuraiInfo samuraiInfo = new SamuraiInfo();
 
             using (var context = new SamuraiContext())
             {
-                foreach (var samurai in context.Samurais)
+                var battles = from s in context.Samurais
+                    join sb in context.SamuraiBattles
+                    on s.Id equals sb.SamuraiId
+                    join b in context.Battles
+                    on sb.BattleId equals b.Id
+                    select new
+                    {
+                        samuraiName = s.Name,
+                        samuraiAlias = s.Alias.RealName,
+                        battles = b.Name
+                    };
+
+                foreach (var thing in battles)
+                {
+                    samuraiInfo.Name = thing.samuraiName;
+                    samuraiInfo.RealName = thing.samuraiAlias;
+                    samuraiInfo.BattleNames = thing.battles;
+                    Console.WriteLine($"Name: {samuraiInfo.Name}, Alias: {samuraiInfo.RealName}, Battles: {samuraiInfo.BattleNames}");
+                }
+
+
+                foreach (var samurai in context.Samurais.Include(s => s.Alias))
                 {
                     samuraiInfo.Name = samurai.Name;
                     samuraiInfo.RealName = samurai.Alias.RealName;
+
+
+
                     //TODO: Koppla ihop samurais med respektive battles
                 }
                 return samuraiInfoList;
