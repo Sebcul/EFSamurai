@@ -13,6 +13,7 @@ namespace EFSamurai.Domain
         public DateTime Time { get; set; }
         public bool IsBrutal { get; set; }
         public virtual BattleLog BattleLog { get; set; }
+        public int BattleLogId { get; set; }
 
     }
 }

@@ -47,10 +47,76 @@ namespace EFSamurai.App
             Console.WriteLine();
             Console.WriteLine("List all battles from 2012-03-03 to Today");
             ListAllBattles(Convert.ToDateTime("2012-03-03"), DateTime.Now.AddDays(2), null);
+            Console.WriteLine();
+            Console.WriteLine("List all samurai Names with their alias");
+            var namesWithAlias = AllSamuariNameWithAlias();
+            DisplayList(namesWithAlias);
+            Console.WriteLine();
+            Console.WriteLine("List all battles with it's log book and events where IsBrutal = true");
+            ListAllBattles_WithLog(DateTime.MinValue, DateTime.MaxValue, true);
+            Console.WriteLine();
+            Console.WriteLine("List all battles with it's log book and events where IsBrutal = false");
+            ListAllBattles_WithLog(DateTime.MinValue, DateTime.MaxValue, false);
             //AddSomeSamurais();
 
             Console.WriteLine("\nDone!");
             Console.ReadLine();
+        }
+
+        private static void ListAllBattles_WithLog(DateTime from, DateTime to, bool isBrutal)
+        {
+            using (var context = new SamuraiContext())
+            {
+                if (isBrutal)
+                {
+                    foreach (
+                        var battle in
+                        context.Battles.Include(b => b.BattleLog.Events)
+                            .Where(b => b.Time >= from && b.Time <= to && b.IsBrutal))
+                    {
+                        DisplayBattle(battle);
+                    }
+                }
+                else
+                {
+                    foreach (
+                        var battle in
+                        context.Battles.Include(b => b.BattleLog.Events)
+                            .Where(b => b.Time >= from && b.Time <= to && !b.IsBrutal))
+                    {
+                        DisplayBattle(battle);
+                    }
+                }
+
+            }
+        }
+
+        private static void DisplayBattle(Battle battle)
+        {
+            Console.WriteLine($"Name of battle: {battle.Name}");
+
+            Console.WriteLine($"Log name: {battle.BattleLog.Name}");
+            foreach (var happening in battle.BattleLog.Events)
+            {
+                Console.WriteLine($"Event: {happening.EventSummary}");
+            }
+            Console.WriteLine();
+        }
+
+        private static void DisplayList(List<string> stringList)
+        {
+            foreach (var @string in stringList)
+            {
+                Console.WriteLine(@string);
+            }
+        }
+
+        private static List<string> AllSamuariNameWithAlias()
+        {
+            using (var context = new SamuraiContext())
+            {
+                return context.Samurais.Select(s => $"{s.Name} alias {s.Alias.RealName}").ToList();
+            }
         }
 
         private static void ListAllBattles(DateTime from, DateTime to, bool? isBrutal)
